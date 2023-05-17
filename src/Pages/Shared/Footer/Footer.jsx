@@ -1,4 +1,4 @@
-import { FaTwitter, FaFacebook, FaYoutube, FaPhoneAlt, FaEnvelope, FaShoppingCart } from "react-icons/fa";
+import { FaTwitter, FaFacebook, FaPhoneAlt, FaEnvelope, FaShoppingCart, FaInstagram } from "react-icons/fa";
 const Footer = () => {
     return (
         <footer className="footer p-10 bg-fuchsia-300 text-base-content">
@@ -21,9 +21,10 @@ const Footer = () => {
             <div>
                 <span className="footer-title">Follow Us</span>
                 <div className="grid grid-flow-col gap-4">
-                    <a><FaTwitter className="text-3xl"></FaTwitter></a>
-                    <a><FaFacebook className="text-3xl"></FaFacebook></a>
-                    <a><FaYoutube className="text-3xl"></FaYoutube></a>
+                    <a href="https://twitter.com/" target="_blank" rel="noreferrer"><FaTwitter className="text-3xl"></FaTwitter></a>
+                    <a href="https://www.facebook.com/" target="_blank" rel="noreferrer"><FaFacebook className="text-3xl"></FaFacebook></a>
+                    <a href="https://www.instagram.com/" target="_blank" rel="noreferrer"><FaInstagram className="text-3xl"></FaInstagram></a>
+
                 </div>
             </div>
         </footer>
