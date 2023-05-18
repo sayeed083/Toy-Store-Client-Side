@@ -28,7 +28,7 @@ const NavBar = () => {
                             <li><Link to="/blogs">Blogs</Link></li>
                         </ul>
                     </div>
-                    <img className="w-24" src="https://i.postimg.cc/Rh1DrFQG/jeep.png" alt="" />
+                    <img className="w-32" src="https://i.postimg.cc/Bv9M62kc/Tinydriver-1.png" alt="" />
                     <a className=" text-3xl font-serif ml-4">Tiny Drivers</a>
                 </div>
                 <div className="navbar-center hidden lg:flex">

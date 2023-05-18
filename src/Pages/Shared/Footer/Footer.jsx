@@ -4,7 +4,7 @@ const Footer = () => {
         <footer className="footer p-10 bg-fuchsia-300 text-base-content">
             <div>
 
-                <img className="w-24" src="https://i.postimg.cc/Rh1DrFQG/jeep.png" alt="" />
+                <img className="w-32" src="https://i.postimg.cc/Bv9M62kc/Tinydriver-1.png" alt="" />
                 <p className="text-3xl font-serif">Tiny Drivers</p>
                 <p className="text-center">Copyright © 2023 - All right reserved by Tiny Drivers</p>
             </div>
