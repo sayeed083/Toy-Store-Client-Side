@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 
 
+
 const NavBar = () => {
     return (
         <div>
@@ -31,7 +32,9 @@ const NavBar = () => {
                     </ul>
                 </div>
                 <div className="navbar-end">
-                    <button className="btn btn-outline btn-primary">Log In</button>
+                    <Link to="/login">
+                        <button className="btn btn-outline btn-primary">Log In</button>
+                    </Link>
                 </div>
             </div>
         </div>

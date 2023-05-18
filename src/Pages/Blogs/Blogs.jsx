@@ -40,7 +40,7 @@ const Blogs = () => {
             <div className="bg-pink-400 border rounded-lg p-10 m-10">
                 <h2 className="text-2xl">What is MongoDB aggregate and how does it work ?</h2>
                 <div className="divider"></div>
-                <p>MongoDB's aggregate method is a powerful feature that allows you to perform advanced data analysis and manipulation on collections within a MongoDB database. Aggregation is a way of processing a large number of documents in a collection by means of passing them through different stages. <br />
+                <p>MongoDB aggregate method is a powerful feature that allows you to perform advanced data analysis and manipulation on collections within a MongoDB database. Aggregation is a way of processing a large number of documents in a collection by means of passing them through different stages. <br />
                     Thats how it work :
                 </p>
                 <li>MongoDB receives the aggregate command with the specified pipeline stages.</li>
