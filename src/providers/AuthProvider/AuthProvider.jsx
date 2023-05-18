@@ -1,12 +1,13 @@
 import { useState } from "react";
 import { createContext } from "react";
-import { createUserWithEmailAndPassword, getAuth, signInWithEmailAndPassword, updateProfile } from "firebase/auth";
+import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signOut, updateProfile } from "firebase/auth";
 import app from "../../firebase/firebase.config";
+import { useEffect } from "react";
 
 export const AuthContext = createContext(null)
 const auth = getAuth(app);
 
-const AuthProvider = ({children}) => {
+const AuthProvider = ({ children }) => {
 
     //For Individual User Info
     const [user, setUser] = useState(null);
@@ -25,20 +26,38 @@ const AuthProvider = ({children}) => {
         return signInWithEmailAndPassword(auth, email, password)
     }
 
+    const logOut = () => {
+        setSpinner(true)
+        return signOut(auth)
+    }
+
     const handleNameWithPhoto = (user, name, photoURL) => {
+        console.log('ss', user, name, photoURL);
         updateProfile(user, {
             displayName: name,
             photoURL:photoURL
         })
     }
 
+    useEffect(() => {
+        const unsubscribed = onAuthStateChanged(auth, loggedUser => {
+            console.log('Login USER auth-state observer', loggedUser);
+            setUser(loggedUser);
+            setSpinner(false)
+        })
+        return () => {
+            unsubscribed()
+        }
+    }, [])
+
 
     const authInfo = {
         user,
+        handleNameWithPhoto,
         spinner,
         createUser,
         signIn,
-        handleNameWithPhoto
+        logOut
 
 
     }
