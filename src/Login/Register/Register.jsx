@@ -1,10 +1,12 @@
+import { useState } from "react";
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider/AuthProvider";
 
 const Register = () => {
 
-    const { createUser } = useContext(AuthContext)
+    const [registererror, setRegistererror] = useState('')
+    const { createUser, handleNameWithPhoto } = useContext(AuthContext)
 
     const handleRegistration = event => {
         event.preventDefault();
@@ -17,11 +19,14 @@ const Register = () => {
         createUser(email, password)
         .then(result => {
             const createdUser = result.user;
+            handleNameWithPhoto(createdUser, name, photo)
             console.log(createdUser);
+            setRegistererror('')
             event.target.reset();
         })
         .catch(error => {
             console.log(error.message);
+            setRegistererror(error.message);
         })
 
     }
@@ -62,7 +67,7 @@ const Register = () => {
                                     </label>
                                     <input type="password" name="password" placeholder="Enter Your password" className="input input-bordered" />
                                     <label className="label">
-                                        <p>Warning:</p>
+                                        <p>Warning:{registererror}</p>
                                     </label>
                                 </div>
 
