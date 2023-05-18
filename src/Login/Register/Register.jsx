@@ -17,17 +17,17 @@ const Register = () => {
         const photo = form.photo.value;
 
         createUser(email, password)
-        .then(result => {
-            const createdUser = result.user;
-            handleNameWithPhoto(createdUser, name, photo)
-            console.log(createdUser);
-            setRegistererror('')
-            event.target.reset();
-        })
-        .catch(error => {
-            console.log(error.message);
-            setRegistererror(error.message);
-        })
+            .then(result => {
+                const createdUser = result.user;
+                handleNameWithPhoto(createdUser, name, photo)
+                console.log(createdUser);
+                setRegistererror('')
+                event.target.reset();
+            })
+            .catch(error => {
+                console.log(error.message);
+                setRegistererror(error.message);
+            })
 
     }
     return (
@@ -67,7 +67,7 @@ const Register = () => {
                                     </label>
                                     <input type="password" name="password" placeholder="Enter Your password" className="input input-bordered" />
                                     <label className="label">
-                                        <p>Warning:{registererror}</p>
+                                        <p className="text-red-700">Warning:{registererror}</p>
                                     </label>
                                 </div>
 

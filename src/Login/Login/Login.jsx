@@ -6,7 +6,7 @@ import { useState } from "react";
 
 
 const Login = () => {
-    const {signIn} = useContext(AuthContext)
+    const { signIn, logInwithGoogle } = useContext(AuthContext)
     const navigate = useNavigate()
     const location = useLocation()
     const [loginerror, setLoginerror] = useState('')
@@ -21,17 +21,32 @@ const Login = () => {
         console.log(email, password);
 
         signIn(email, password)
-        .then(result => {
-            const loggedUser = result.user;
-            console.log(loggedUser);
-            navigate(from, {replace: true} )
-            setLoginerror('')
-        })
-        .catch (error => {
-            console.log(error.message);
-            setLoginerror(error.message);
-        })
+            .then(result => {
+                const loggedUser = result.user;
+                console.log(loggedUser);
+                navigate(from, { replace: true })
+                setLoginerror('')
+            })
+            .catch(error => {
+                console.log(error.message);
+                setLoginerror(error.message);
+            })
     }
+
+    const handleGoogleLogIn = () => {
+
+        logInwithGoogle()
+            .then(result => {
+                const user = result.user;
+                console.log(user);
+                navigate('/')
+            })
+            .catch(error => {
+                console.log(error);
+            })
+    }
+
+
 
 
     return (
@@ -57,7 +72,7 @@ const Login = () => {
                                     </label>
                                     <input type="password" name="password" placeholder="password" className="input input-bordered" />
                                     <label className="label">
-                                        <p>Warning:{loginerror}</p>
+                                        <p className="text-red-700">Warning:{loginerror}</p>
                                     </label>
 
 
@@ -72,7 +87,7 @@ const Login = () => {
 
                             {/* Google Sign In Part  */}
                             <div className="mx-auto">
-                                <button className="btn btn-outline btn-secondary">
+                                <button onClick={handleGoogleLogIn} className="btn btn-outline btn-secondary">
                                     <FaGoogle className="mr-2"></FaGoogle>
                                     Login with Google
                                 </button>

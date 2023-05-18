@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { createContext } from "react";
-import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signOut, updateProfile } from "firebase/auth";
+import { createUserWithEmailAndPassword, getAuth, GoogleAuthProvider, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from "firebase/auth";
 import app from "../../firebase/firebase.config";
 import { useEffect } from "react";
 
@@ -13,6 +13,20 @@ const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null);
     //For Load a Spinner
     const [spinner, setSpinner] = useState(true)
+
+
+
+    // The Special Providers 
+    const theGoogleProvider = new GoogleAuthProvider()
+
+
+    // Log in With Google
+
+    const logInwithGoogle = () => {
+        return signInWithPopup(auth, theGoogleProvider)
+    }
+
+
 
 
     //Creating New User With Email Password
@@ -32,10 +46,10 @@ const AuthProvider = ({ children }) => {
     }
 
     const handleNameWithPhoto = (user, name, photoURL) => {
-        console.log('ss', user, name, photoURL);
+        // console.log('ss', user, name, photoURL);
         updateProfile(user, {
             displayName: name,
-            photoURL:photoURL
+            photoURL: photoURL
         })
     }
 
@@ -57,7 +71,8 @@ const AuthProvider = ({ children }) => {
         spinner,
         createUser,
         signIn,
-        logOut
+        logOut,
+        logInwithGoogle
 
 
     }

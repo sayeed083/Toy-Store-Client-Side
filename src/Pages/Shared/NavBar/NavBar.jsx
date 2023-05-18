@@ -9,8 +9,8 @@ const NavBar = () => {
 
     const handleLogOut = () => {
         logOut()
-        .then()
-        .catch(error => console.log(error));
+            .then()
+            .catch(error => console.log(error));
     }
     return (
         <div>
@@ -52,9 +52,9 @@ const NavBar = () => {
 
                     {user ? <button onClick={handleLogOut} className="btn btn-outline btn-primary">Log Out</button> :
 
-                    <Link to="/login">
-                        <button className="btn btn-outline btn-primary">Log In</button>
-                    </Link>}
+                        <Link to="/login">
+                            <button className="btn btn-outline btn-primary">Log In</button>
+                        </Link>}
                 </div>
             </div>
         </div>
