@@ -1,10 +1,10 @@
-
+import { FaAngleDoubleLeft, FaAngleDoubleRight } from "react-icons/fa";
 
 const Banner = () => {
     return (
         <div className="">
             <div className="carousel w-full h-[820px] mx-auto">
-                
+
 
                 {/* Slider- 1  */}
                 <div id="slide1" className="carousel-item relative w-full rounded-xl">
@@ -17,8 +17,8 @@ const Banner = () => {
                         </div>
                     </div>
                     <div className="absolute flex justify-end transform -translate-y-1/2 left-1/2 right-5 bottom-0">
-                        <a href="#slide4" className="btn btn-circle bg-teal-400 mr-10">❮</a>
-                        <a href="#slide2" className="btn btn-circle bg-teal-400 ">❯</a>
+                        <a href="#slide4" className="btn btn-circle bg-teal-400 mr-10"><FaAngleDoubleLeft className="text-2xl"/></a>
+                        <a href="#slide2" className="btn btn-circle bg-teal-400 "><FaAngleDoubleRight className="text-2xl"/></a>
                     </div>
                 </div>
 
@@ -36,8 +36,8 @@ const Banner = () => {
                         </div>
                     </div>
                     <div className="absolute flex justify-end transform -translate-y-1/2 left-1/2 right-5 bottom-0">
-                        <a href="#slide1" className="btn btn-circle bg-teal-400 mr-10">❮</a>
-                        <a href="#slide3" className="btn btn-circle bg-teal-400">❯</a>
+                        <a href="#slide1" className="btn btn-circle bg-teal-400 mr-10"><FaAngleDoubleLeft className="text-2xl"/></a>
+                        <a href="#slide3" className="btn btn-circle bg-teal-400"><FaAngleDoubleRight className="text-2xl"/></a>
                     </div>
                 </div>
 
@@ -56,8 +56,8 @@ const Banner = () => {
                         </div>
                     </div>
                     <div className="absolute flex justify-end transform -translate-y-1/2 left-1/2 right-5 bottom-0">
-                        <a href="#slide2" className="btn btn-circle bg-teal-400 mr-10">❮</a>
-                        <a href="#slide4" className="btn btn-circle bg-teal-400">❯</a>
+                        <a href="#slide2" className="btn btn-circle bg-teal-400 mr-10"><FaAngleDoubleLeft className="text-2xl"/></a>
+                        <a href="#slide4" className="btn btn-circle bg-teal-400"><FaAngleDoubleRight className="text-2xl"/></a>
                     </div>
                 </div>
 
@@ -74,8 +74,8 @@ const Banner = () => {
                         </div>
                     </div>
                     <div className="absolute flex justify-end transform -translate-y-1/2 left-1/2 right-5 bottom-0">
-                        <a href="#slide3" className="btn btn-circle bg-teal-400 mr-10">❮</a>
-                        <a href="#slide1" className="btn btn-circle bg-teal-400">❯</a>
+                        <a href="#slide3" className="btn btn-circle bg-teal-400 mr-10"><FaAngleDoubleLeft className="text-2xl"/></a>
+                        <a href="#slide1" className="btn btn-circle bg-teal-400"><FaAngleDoubleRight className="text-2xl"/></a>
                     </div>
                 </div>
             </div>
@@ -84,5 +84,3 @@ const Banner = () => {
 };
 
 export default Banner;
-
-// absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2
