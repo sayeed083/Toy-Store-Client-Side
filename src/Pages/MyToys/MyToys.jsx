@@ -21,34 +21,42 @@ const MyToys = () => {
 
 
     const handleDeleteOpertaion = id => {
-        const proceed = Swal.fire({
-            icon: 'error',
-            title: 'Oops...',
-            text: 'Something went wrong!',
-            footer: '<a href="">Why do I have this issue?</a>'
-          })
-        if (proceed) {
-            fetch(`http://localhost:5000/toyCars/${id}`, {
-                method: 'DELETE'
-            })
-                .then(res => res.json())
-                .then(data => {
-                    console.log(data);
-                    if (data.deletedCount > 0) {
-                        Swal.fire({
-                            position: 'top',
-                            icon: 'success',
-                            title: 'Deleted Successfully',
-                            showConfirmButton: false,
-                            timer: 1500
-                        })
-                        const remaining = mytoys.filter(mytoy => mytoy._id !== id);
-                        setMytoys(remaining);
-
-                    }
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                fetch(`http://localhost:5000/toyCars/${id}`, {
+                    method: 'DELETE'
                 })
+                    .then(res => res.json())
+                    .then(data => {
+                        console.log(data);
+                        if (data.deletedCount > 0) {
+                            Swal.fire(
+                                'Deleted!',
+                                'Your Car has been deleted.',
+                                'success'
+                            )
+                            const remaining = mytoys.filter(mytoy => mytoy._id !== id);
+                            setMytoys(remaining);
+
+                        }
+                    })
+
+            }
+
+
         }
+        )
     }
+
+
 
     return (
         <div>

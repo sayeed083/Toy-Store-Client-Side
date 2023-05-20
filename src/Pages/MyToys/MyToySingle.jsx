@@ -1,10 +1,11 @@
+import { Link } from "react-router-dom";
 
 
 const MyToySingle = ({ mytoy, handleDeleteOpertaion }) => {
 
     const { _id, toyPicture, toyName, sellerName, sellerEmail, category, price, ratings, quantity, details } = mytoy;
 
-    
+
 
 
     return (
@@ -57,7 +58,9 @@ const MyToySingle = ({ mytoy, handleDeleteOpertaion }) => {
             <td>{sellerEmail}</td>
 
             <th>
-                <button className="btn btn-ghost btn-xs">details</button>
+                <Link to={`/updateToys/${_id}`}>
+                    <button className="btn  bg-green-400">Update</button>
+                </Link>
             </th>
         </tr>
 
