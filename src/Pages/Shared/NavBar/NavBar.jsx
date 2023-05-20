@@ -34,10 +34,25 @@ const NavBar = () => {
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1">
                         <li><Link to="/">Home</Link></li>
-                        <li><Link to="/">All Toys</Link></li>
-                        <li><Link to="/myToys">My Toys</Link></li>
-                        <li><Link to="/addtoys">Add a Toy</Link></li>
+                        <li><Link to="/alltoys">All Toys</Link></li>
+
+
                         <li><Link to="/blogs">Blogs</Link></li>
+
+                        {user ? <>
+                            <li><Link to="/addtoys">Add a Toy</Link></li>
+                            <li><Link to="/myToys">My Toys</Link></li>
+                            <button onClick={handleLogOut} className="btn btn-outline btn-primary ml-5">Log Out</button>
+
+                        </> :
+
+                            <Link to="/login">
+                                <button className="btn btn-outline btn-primary">Log In</button>
+                            </Link>}
+
+
+
+
                     </ul>
 
                 </div>
@@ -52,15 +67,11 @@ const NavBar = () => {
                         </div>
 
                     }
-                    
 
 
 
-                    {user ? <button onClick={handleLogOut} className="btn btn-outline btn-primary">Log Out</button> :
 
-                        <Link to="/login">
-                            <button className="btn btn-outline btn-primary">Log In</button>
-                        </Link>}
+
                 </div>
             </div>
         </div>

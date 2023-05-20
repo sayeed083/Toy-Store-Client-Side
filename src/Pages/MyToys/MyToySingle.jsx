@@ -1,8 +1,10 @@
 
 
-const MyToySingle = ({ mytoy }) => {
+const MyToySingle = ({ mytoy, handleDeleteOpertaion }) => {
 
-    const { toyPicture, toyName, sellerName, sellerEmail, category, price, ratings, quantity, details } = mytoy;
+    const { _id, toyPicture, toyName, sellerName, sellerEmail, category, price, ratings, quantity, details } = mytoy;
+
+    
 
 
     return (
@@ -10,8 +12,8 @@ const MyToySingle = ({ mytoy }) => {
 
         <tr>
             <th>
-                <button className="btn btn-sm btn-circle">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" /></svg>
+                <button onClick={() => handleDeleteOpertaion(_id)} className="btn btn-sm btn-circle bg-red-600">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 " fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" /></svg>
                 </button>
             </th>
             <td>
@@ -35,7 +37,7 @@ const MyToySingle = ({ mytoy }) => {
             <td>
 
                 {/* The button to open modal */}
-                <label htmlFor="my-modal" className="btn bg-red-600">See Details Here</label>
+                <label htmlFor="my-modal" className="btn bg-green-400">See Details Here</label>
 
 
                 <input type="checkbox" id="my-modal" className="modal-toggle" />
