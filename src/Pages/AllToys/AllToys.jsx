@@ -1,9 +1,12 @@
 import { useEffect } from "react";
 import { useState } from "react";
+import useTitle from "../../hooks/useTitle";
 import AllToysSingle from "./AllToysSingle";
 
 
 const AllToys = () => {
+
+    useTitle('All Toys')
 
     const [alltoys, setAlltoys] = useState([])
     const [search, setSearch] = useState("")

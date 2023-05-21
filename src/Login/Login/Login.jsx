@@ -3,9 +3,11 @@ import { FaGoogle } from "react-icons/fa";
 import { useContext } from "react";
 import { AuthContext } from "../../providers/AuthProvider/AuthProvider";
 import { useState } from "react";
+import useTitle from "../../hooks/useTitle";
 
 
 const Login = () => {
+    useTitle('Login')
     const { signIn, logInwithGoogle } = useContext(AuthContext)
     const navigate = useNavigate()
     const location = useLocation()
