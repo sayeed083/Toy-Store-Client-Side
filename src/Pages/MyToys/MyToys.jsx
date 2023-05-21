@@ -60,7 +60,19 @@ const MyToys = () => {
 
     return (
         <div>
-            <h2 className="text-center text-5xl my-5">There is My Toy:{mytoys.length}</h2>
+
+            <div className="hero min-h-full" style={{ backgroundImage: `url("https://i.postimg.cc/D0PHNR71/Background-2-7.jpg")` }}>
+                <div className="hero-overlay bg-opacity-60"></div>
+                <div className="hero-content text-center text-neutral-content">
+                    <div className="max-w-md h-60">
+                        <h1 className="mb-5 text-5xl pt-20 font-bold">My Toys</h1>
+
+                    </div>
+                </div>
+            </div>
+
+
+
 
             <div className="overflow-x-auto w-full">
                 <table className="table w-full">
