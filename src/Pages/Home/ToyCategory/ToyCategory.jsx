@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
-// import Aos from 'aos';
-// import 'aos/dist/aos.css';
-// import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
+import Aos from 'aos';
+import 'aos/dist/aos.css';
 import 'react-tabs/style/react-tabs.css';
 import ToyCategorySingle from './ToyCategorySingle';
 const ToyCategory = () => {
@@ -12,7 +11,7 @@ const ToyCategory = () => {
 
 
     useEffect(() => {
-        fetch(`http://localhost:5000/category/${categoryTab}`)
+        fetch(`https://a-11-toy-store-server.vercel.app/category/${categoryTab}`)
             .then(res => res.json())
             .then(data => {
                 setToyCategories(data);
@@ -20,11 +19,11 @@ const ToyCategory = () => {
     }, [categoryTab]);
 
 
-    // useEffect(() => {
+    useEffect(() => {
 
-    //     Aos.init({ duration: 2000 });
+        Aos.init({ duration: 2000 });
 
-    // }, [])
+    }, [])
 
 
 
@@ -32,7 +31,7 @@ const ToyCategory = () => {
 
 
     const handleTabs = (tabNames) => {
-        console.log("xx");
+
         setCategoryTab(tabNames);
     }
 
@@ -62,32 +61,7 @@ const ToyCategory = () => {
 
 
 
-            {/* <div className='mx-24'>
-                <Tabs>
-                    <TabList>
-                        <Tab onClick={() => handleTabs("SportsCar")}>SportsCar</Tab>
-                        <Tab onClick={() => handleTabs("Jeep")}>Jeep</Tab>
-                        <Tab onClick={() => handleTabs("RegularCar")}>RegularCar</Tab>
-                    </TabList>
 
-                    <TabPanel>
-                        {
-                            toyCategories.map(toyCategorie => <ToyCategorySingle
-                                key={toyCategorie._id}
-                                toyCategorie={toyCategorie}
-                            >
-
-                            </ToyCategorySingle>)
-                        }
-                    </TabPanel>
-                    <TabPanel>
-                        <h2>Any content 2</h2>
-                    </TabPanel>
-                    <TabPanel>
-                        <h2>Any content 3</h2>
-                    </TabPanel>
-                </Tabs>
-            </div> */}
         </div>
     );
 };

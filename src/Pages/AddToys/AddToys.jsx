@@ -33,9 +33,9 @@ const AddToys = () => {
             details: details
 
         }
-        console.log(toyInformations);
+        
 
-        fetch('http://localhost:5000/toyCars', {
+        fetch('https://a-11-toy-store-server.vercel.app/toyCars', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -44,9 +44,7 @@ const AddToys = () => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data);
                 if (data.insertedId) {
-                    // alert('added toys')
                     Swal.fire({
                         position: 'top',
                         icon: 'success',
